@@ -12,7 +12,6 @@ const contextTop = viewTop.getContext("2d");
 
 function drawTop() {
     draw(viewTop, viewTop.getContext('2d'), maze);
-    requestAnimationFrame(drawTop);
 }
 
 requestAnimationFrame(drawTop);
@@ -28,15 +27,19 @@ document.addEventListener('keydown', ({ keyCode }) => {
     switch (keyCode) {
         case KEY_CODES.KEY_UP:
             maze.playerForward();
+            requestAnimationFrame(drawTop);
             break;
         case KEY_CODES.KEY_DOWN:
             maze.playerBackward();
+            requestAnimationFrame(drawTop);
             break;
         case KEY_CODES.KEY_LEFT:
             maze.playerRotateLeft();
+            requestAnimationFrame(drawTop);
             break;
         case KEY_CODES.KEY_RIGHT:
             maze.playerRotateRight();
+            requestAnimationFrame(drawTop);
             break;
     }
 });

@@ -18,20 +18,60 @@ export class Maze {
         return maze;
     }
 
+    nodeAt(x, y) {
+        return this.nodes[y * this.width + x];
+    }
+
+    isColliding(x, y) {
+        const node = this.nodeAt(Math.floor(x), Math.floor(y));
+        const playerSize = 0.4
+
+        const offsetX = x % 1;
+        const offsetY = y % 1;
+
+        if (offsetX < playerSize / 2 && (!node.west || node.west.closed)) {
+            return true;
+        }
+
+        if (offsetX > 1 - playerSize / 2 && (!node.east || node.east.closed)) {
+            return true;
+        }
+
+        if (offsetY < playerSize / 2 && (!node.north || node.north.closed)) {
+            return true;
+        }
+
+        if (offsetY > 1 - playerSize / 2 && (!node.south || node.south.closed)) {
+            return true;
+        }
+
+        return false;
+    }
+
     playerForward() {
         const axis_x = Math.cos(this.player.rotation);
         const axis_y = Math.sin(this.player.rotation);
 
-        this.player.x += axis_x * 0.15;
-        this.player.y += axis_y * 0.15;
+        const newX = this.player.x + axis_x * 0.15;
+        const newY = this.player.y + axis_y * 0.15;
+
+        if (!this.isColliding(newX, newY)) {
+            this.player.x = newX;
+            this.player.y = newY;
+        }
     }
 
     playerBackward() {
         const axis_x = Math.cos(this.player.rotation);
         const axis_y = Math.sin(this.player.rotation);
 
-        this.player.x -= axis_x * 0.15;
-        this.player.y -= axis_y * 0.15;
+        const newX = this.player.x - axis_x * 0.15;
+        const newY = this.player.y - axis_y * 0.15;
+
+        if (!this.isColliding(newX, newY)) {
+            this.player.x = newX;
+            this.player.y = newY;
+        }
     }
 
     playerRotateLeft() {
