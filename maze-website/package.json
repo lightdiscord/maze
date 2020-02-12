@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/lightdiscord/maze/issues"
   },
-  "homepage": "https://github.com/lightdiscord/maze#readme"
+  "homepage": "https://github.com/lightdiscord/maze#readme",
+  "dependencies": {
+    "@maze/maze": "file:../maze",
+    "@maze/viewer-top": "file:../maze-viewer-top"
+  }
 }

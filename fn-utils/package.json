@@ -1,7 +1,7 @@
 {
-  "name": "@maze/viewer-top",
+  "name": "@maze/fn-utils",
   "version": "0.1.0",
-  "description": "TODO",
+  "description": "",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,9 +15,5 @@
   "bugs": {
     "url": "https://github.com/lightdiscord/maze/issues"
   },
-  "homepage": "https://github.com/lightdiscord/maze#readme",
-  "dependencies": {
-    "@maze/maze": "file:../maze",
-    "@maze/fn-utils": "file:../fn-utils"
-  }
+  "homepage": "https://github.com/lightdiscord/maze#readme"
 }
