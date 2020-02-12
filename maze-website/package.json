@@ -18,6 +18,7 @@
   "homepage": "https://github.com/lightdiscord/maze#readme",
   "dependencies": {
     "@maze/maze": "file:../maze",
-    "@maze/viewer-top": "file:../maze-viewer-top"
+    "@maze/viewer-top": "file:../maze-viewer-top",
+    "@maze/fn-utils": "file:../fn-utils"
   }
 }

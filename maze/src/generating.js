@@ -1,5 +1,5 @@
 import { randomItem } from "@maze/fn-utils";
-import { Link } from "./src/nodes";
+import { Link } from "./nodes";
 
 const VISITED = Symbol();
 

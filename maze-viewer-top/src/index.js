@@ -27,8 +27,22 @@ function drawNode(context, x, y, node, nodeSize) {
   }
 }
 
-export function draw(canvas, context, maze) {
+function drawPlayer(context, player, nodeSize) {
+  const playerSize = nodeSize * 0.4;
+
+  context.fillStyle = '#ff0000';
+  context.fillRect(
+    player.x * nodeSize - playerSize / 2,
+    player.y * nodeSize - playerSize / 2,
+    playerSize,
+    playerSize
+   );
+}
+
+export function draw(canvas, context, maze) { 
   const nodeSize = computeNodeSize(canvas, maze);
+
+  context.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
 
   for (const { idx, item: node } of enumerate(maze.nodes)) {
     const { quotient: y, remainder: x } = division(idx, maze.width);
@@ -37,4 +51,6 @@ export function draw(canvas, context, maze) {
   }
 
   context.stroke();
+
+  drawPlayer(context, maze.player, nodeSize);
 }
