@@ -10,6 +10,13 @@ export class Link {
     this.a = a;
     this.b = b;
   }
+
+  static findLink(a, b) {
+    if (a.north == b.south) return a.north;
+    if (a.east == b.west) return a.east;
+    if (a.south == b.north) return a.south;
+    if (a.west == b.east) return a.west;
+  }
 }
 
 export class Node {
@@ -18,8 +25,11 @@ export class Node {
   south;
   west;
 
-  get opened() {
-    return !this.closed;
+  *neighbours() {
+    if (this.north) yield this.north.a;
+    if (this.east) yield this.east.b;
+    if (this.south) yield this.south.b;
+    if (this.west) yield this.west.a;
   }
 
   static generateGrid(width, height) {

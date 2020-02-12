@@ -1,3 +1,8 @@
+export function randomItem(list) {
+    const idx = Math.floor(Math.random() * list.length);
+    return list[idx];
+}
+
 export function* enumerate(generator) {
     let idx = 0;
 

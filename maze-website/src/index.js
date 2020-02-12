@@ -1,10 +1,10 @@
 import { Maze } from "@maze/maze/src/maze";
 import { randomize } from "@maze/maze/src/nodes";
 import { draw } from "@maze/viewer-top";
+import { generation } from "@maze/maze/generating";
 
 const maze = Maze.generateDefault(20, 10);
-
-//randomize(maze);
+generation(maze);
 
 const viewTop = document.querySelector("canvas#view-top");
 
