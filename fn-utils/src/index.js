@@ -18,3 +18,16 @@ export function division(a, b) {
 
     return { quotient, remainder };
 }
+
+export function filterMap(fn, array) {
+    const elements = [];
+
+    for (const element of array) {
+        const value = fn(element);
+        if (value !== undefined && value !== null) {
+            elements.push(value);
+        }
+    }
+
+    return elements;
+}

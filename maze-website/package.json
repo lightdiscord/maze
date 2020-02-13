@@ -19,6 +19,7 @@
   "dependencies": {
     "@maze/maze": "file:../maze",
     "@maze/viewer-top": "file:../maze-viewer-top",
+    "@maze/viewer-fps": "file:../maze-viewer-fps",
     "@maze/fn-utils": "file:../fn-utils"
   }
 }

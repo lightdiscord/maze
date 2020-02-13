@@ -1,20 +1,23 @@
 import { Maze } from "@maze/maze/src/maze";
-import { draw } from "@maze/viewer-top";
+import { draw as drawTop } from "@maze/viewer-top";
+import { draw as drawFps } from "@maze/viewer-fps";
 import { generation } from "@maze/maze/src/generating";
-import { charCode } from "@maze/fn-utils";
 
 const maze = Maze.generateDefault(20, 10);
 generation(maze);
 
 const viewTop = document.querySelector("canvas#view-top");
-
 const contextTop = viewTop.getContext("2d");
 
-function drawTop() {
-    draw(viewTop, viewTop.getContext('2d'), maze);
+const viewFps = document.querySelector("canvas#view-fps");
+const contextFps = viewFps.getContext("2d");
+
+function draw() {
+    drawTop(viewTop, contextTop, maze);
+    drawFps(viewFps, contextFps, maze);
 }
 
-requestAnimationFrame(drawTop);
+requestAnimationFrame(draw);
 
 const KEY_CODES = {
     KEY_UP: 38,
@@ -27,19 +30,19 @@ document.addEventListener('keydown', ({ keyCode }) => {
     switch (keyCode) {
         case KEY_CODES.KEY_UP:
             maze.playerForward();
-            requestAnimationFrame(drawTop);
+            requestAnimationFrame(draw);
             break;
         case KEY_CODES.KEY_DOWN:
             maze.playerBackward();
-            requestAnimationFrame(drawTop);
+            requestAnimationFrame(draw);
             break;
         case KEY_CODES.KEY_LEFT:
             maze.playerRotateLeft();
-            requestAnimationFrame(drawTop);
+            requestAnimationFrame(draw);
             break;
         case KEY_CODES.KEY_RIGHT:
             maze.playerRotateRight();
-            requestAnimationFrame(drawTop);
+            requestAnimationFrame(draw);
             break;
     }
 });
