@@ -1,0 +1,3 @@
+[build]
+command = "npx lerna bootstrap && npx lerna run build"
+publish = "packages/website-builder/dist"
