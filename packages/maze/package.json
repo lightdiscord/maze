@@ -1,5 +1,5 @@
 {
-  "name": "@maze/viewer-top",
+  "name": "@maze/maze",
   "version": "0.1.0",
   "description": "TODO",
   "main": "src/index.js",
@@ -17,7 +17,6 @@
   },
   "homepage": "https://github.com/lightdiscord/maze#readme",
   "dependencies": {
-    "@maze/maze": "file:../maze",
-    "@maze/fn-utils": "file:../fn-utils"
+    "@maze/fn-utils": "0.1.0"
   }
 }

@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/lightdiscord/maze#readme",
   "dependencies": {
-    "@maze/fn-utils": "file:../fn-utils"
+    "@maze/fn-utils": "0.1.0"
   }
 }
